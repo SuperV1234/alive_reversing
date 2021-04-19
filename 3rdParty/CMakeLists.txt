@@ -25,7 +25,7 @@ target_include_directories(Cinder INTERFACE Cinder/)
 export(TARGETS Cinder FILE Cinder.cmake)
 
 # EasyLogging++ lib
-add_library(EasyLogging++
+add_library(EasyLogging++ SHARED
     EasyLogging++/EasyLogging/src/easylogging++.cc
     EasyLogging++/EasyLogging/src/easylogging++.h
     )
@@ -52,7 +52,7 @@ set_property(TARGET jsonxx PROPERTY FOLDER "3rdParty")
 
 
 # googletest lib
-add_library(googletest
+add_library(googletest SHARED
     googletest/googletest/src/gtest-all.cc
     googletest/googlemock/src/gmock-all.cc
     )
@@ -85,7 +85,7 @@ add_library(imgui
     imgui/backends/imgui_impl_sdl.cpp
     imgui/backends/imgui_impl_opengl3.cpp
     )
-    
+
 target_link_libraries(imgui
     libglew_static
     ${SDL2_LIBRARIES}

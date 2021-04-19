@@ -4,10 +4,8 @@ elseif(WIN32)
   SET(BINPATH ".")
 endif()
 
-add_executable(AliveExe WIN32 
-    Exe.cpp 
-    resource.rc
-    resource.h
+add_executable(AliveExe WIN32
+    Exe.cpp
     app.ico)
 target_include_directories(AliveExe PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
@@ -21,10 +19,8 @@ target_link_libraries(AliveExe AliveLibAE AliveLibAO)
 export(TARGETS AliveExe FILE AliveExe.cmake)
 install(TARGETS AliveExe DESTINATION "${BINPATH}")
 
-add_executable(AliveExeAE WIN32 
-    Exe.cpp 
-    resource.rc
-    resource.h
+add_executable(AliveExeAE WIN32
+    Exe.cpp
     app.ico)
 target_include_directories(AliveExeAE PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
@@ -39,10 +35,8 @@ export(TARGETS AliveExeAE FILE AliveExeAE.cmake)
 install(TARGETS AliveExeAE DESTINATION "${BINPATH}")
 
 
-add_executable(AliveExeAO WIN32 
-    Exe.cpp 
-    resource.rc
-    resource.h
+add_executable(AliveExeAO WIN32
+    Exe.cpp
     app.ico)
 target_include_directories(AliveExeAO PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>

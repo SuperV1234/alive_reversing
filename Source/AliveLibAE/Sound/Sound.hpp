@@ -16,16 +16,15 @@
 #ifndef NO_WAVE
 typedef struct tWAVEFORMATEX
 {
-    WORD        wFormatTag;         
-    WORD        nChannels;          
-    DWORD       nSamplesPerSec;     
-    DWORD       nAvgBytesPerSec;    
-    WORD        nBlockAlign;        
-    WORD        wBitsPerSample;     
-    WORD        cbSize;             
-                                    
+    WORD        wFormatTag;
+    WORD        nChannels;
+    DWORD       nSamplesPerSec;
+    DWORD       nAvgBytesPerSec;
+    WORD        nBlockAlign;
+    WORD        wBitsPerSample;
+    WORD        cbSize;
+
 } WAVEFORMATEX, *PWAVEFORMATEX, *NPWAVEFORMATEX, *LPWAVEFORMATEX;
-#endif 
 
 /* flags for wFormatTag field of WAVEFORMAT */
 #define WAVE_FORMAT_PCM     1
@@ -44,8 +43,13 @@ typedef struct _DSBUFFERDESC
 } DSBUFFERDESC, *LPDSBUFFERDESC;
 typedef const DSBUFFERDESC *LPCDSBUFFERDESC;
 
+#ifndef FAILED
 #define FAILED(hr) (((HRESULT)(hr)) < 0)
+#endif
+
+#ifndef SUCCEEDED
 #define SUCCEEDED(hr) (((HRESULT)(hr)) >= 0)
+#endif
 
 #ifndef _HRESULT_DEFINED
 typedef int HRESULT;
@@ -53,6 +57,7 @@ typedef int HRESULT;
 #define S_OK                            ((HRESULT)0L)
 #endif
 
+#endif
 #endif
 
 
@@ -102,7 +107,8 @@ EXPORT unsigned int CC SND_Get_Sound_Entry_Pos_4EF620(SoundEntry* pSoundEntry);
 EXPORT int CC SND_Clear_4EF350(SoundEntry* pSoundEntry, unsigned int sampleOffset, unsigned int size);
 EXPORT void CC SND_SsQuit_4EFD50();
 EXPORT signed int CC SND_CreateDS_4EEAA0(unsigned int sampleRate, int bitsPerSample, int isStereo);
-EXPORT void CC SND_Init_WaveFormatEx_4EEA00(WAVEFORMATEX *pWaveFormat, int sampleRate, unsigned __int8 bitsPerSample, int isStereo);
+// EXPORT void CC SND_Init_WaveFormatEx_4EEA00(WAVEFORMATEX *pWaveFormat, int sampleRate, unsigned __int8 bitsPerSample, int isStereo);
+EXPORT void CC SND_Init_WaveFormatEx_4EEA00(void *pWaveFormat, int sampleRate, unsigned __int8 bitsPerSample, int isStereo);
 EXPORT signed int CC SND_New_4EEFF0(SoundEntry *pSnd, int sampleLength, int sampleRate, int bitsPerSample, int isStereo);
 EXPORT int CC SND_Load_4EF680(SoundEntry* pSnd, const void* pWaveData, int waveDataLen);
 EXPORT const char* CC SND_HR_Err_To_String_4EEC70(HRESULT hr);

@@ -17,6 +17,7 @@
 
 inline void create_minidump(PEXCEPTION_POINTERS apExceptionInfo)
 {
+    /*
     wchar_t fileNameW[512] = {};
     char fileNameA[512] = {};
 
@@ -49,6 +50,7 @@ inline void create_minidump(PEXCEPTION_POINTERS apExceptionInfo)
         _snprintf(errMsg, _countof(errMsg), "R.E.L.I.V.E. has crashed, dump written to %s in the game folder", fileNameA);
         Alive_Show_ErrorMsg(errMsg);
     }
+    */
 }
 
 inline LONG WINAPI unhandled_handler(PEXCEPTION_POINTERS pExceptionInfo)

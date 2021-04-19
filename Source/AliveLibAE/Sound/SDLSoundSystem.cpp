@@ -82,10 +82,14 @@ HRESULT SDLSoundSystem::DuplicateSoundBuffer(TSoundBufferType* pDSBufferOriginal
     return S_OK;
 }
 
-HRESULT SDLSoundSystem::CreateSoundBuffer(LPCDSBUFFERDESC pcDSBufferDesc, TSoundBufferType** ppDSBuffer, void* /*pUnkOuter*/)
+HRESULT SDLSoundSystem::CreateSoundBuffer(void* pcDSBufferDesc, TSoundBufferType** ppDSBuffer, void* /*pUnkOuter*/)
 {
+    *ppDSBuffer = nullptr;
+    return S_OK;
+/*
     *ppDSBuffer = new SDLSoundBuffer(*pcDSBufferDesc, mAudioDeviceSpec.freq);
     return S_OK;
+*/
 }
 
 

@@ -258,6 +258,11 @@ EXPORT int CC SND_PlayEx_4EF740(const SoundEntry* pSnd, int panLeft, int panRigh
     return -1;
 }
 
+EXPORT void CC SND_Init_WaveFormatEx_4EEA00(void *pWaveFormat, int sampleRate, unsigned __int8 bitsPerSample, int isStereo)
+{
+}
+
+/*
 EXPORT void CC SND_Init_WaveFormatEx_4EEA00(WAVEFORMATEX *pWaveFormat, int sampleRate, unsigned __int8 bitsPerSample, int isStereo)
 {
     pWaveFormat->nSamplesPerSec = 0;
@@ -270,9 +275,13 @@ EXPORT void CC SND_Init_WaveFormatEx_4EEA00(WAVEFORMATEX *pWaveFormat, int sampl
     pWaveFormat->nBlockAlign = bitsPerSample * ((isStereo != 0) + 1) / 8;
     pWaveFormat->nAvgBytesPerSec = sampleRate * pWaveFormat->nBlockAlign;
 }
+*/
 
 EXPORT signed int CC SND_New_4EEFF0(SoundEntry *pSnd, int sampleLength, int sampleRate, int bitsPerSample, int isStereo)
 {
+    return -1;
+
+/*
     if (!sDSound_BBC344)
     {
         return -1;
@@ -348,11 +357,15 @@ EXPORT signed int CC SND_New_4EEFF0(SoundEntry *pSnd, int sampleLength, int samp
         Error_PushErrorRecord_4F2920("C:\\abe2\\code\\POS\\SND.C", 568, -1, "SND_New: out of samples");
         return -1;
     }
+*/
 }
 
 
 EXPORT signed int CC SND_Renew_4EEDD0(SoundEntry *pSnd)
 {
+    return -1;
+
+/*
     if (!sDSound_BBC344)
     {
         Error_PushErrorRecord_4F2920("C:\\abe2\\code\\POS\\SND.C", 351, -1, "DirectSound not initialized");
@@ -386,6 +399,7 @@ EXPORT signed int CC SND_Renew_4EEDD0(SoundEntry *pSnd)
         pSnd->field_10 = 0;
         return 0;
     }
+*/
 }
 
 EXPORT unsigned int CC SND_Get_Sound_Entry_Pos_4EF620(SoundEntry* pSoundEntry)
@@ -506,7 +520,7 @@ EXPORT int CC SND_Buffer_Get_Status_4F00F0(int idx, int a2)
         fromStatus += 0x8000000;
     }
 
-    int v6 = (a2 - pSoundBuffer->field_10) >> 2; // >> 2 = / 2 ? 
+    int v6 = (a2 - pSoundBuffer->field_10) >> 2; // >> 2 = / 2 ?
     if (v6 > 2)
     {
         v6 = 2;
@@ -643,9 +657,9 @@ EXPORT SoundBuffer* CC SND_Get_Sound_Buffer_4EF970(int sampleIdx, int field10)
 
 EXPORT SoundApi::SoundApi()
 {
-   
+
     SND_Get_Sound_Entry_Pos = SND_Get_Sound_Entry_Pos_4EF620;
-   
+
     SND_Clear = SND_Clear_4EF350;
     SND_SsQuit = SND_SsQuit_4EFD50;
     SND_CreateDS = SND_CreateDS_4EEAA0;

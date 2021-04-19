@@ -7,7 +7,9 @@
 #include "BackgroundMusic.hpp"
 
 #ifdef _WIN32
+#ifndef NO_WAVE
 #define NO_WAVE
+#endif
 #endif
 #include "../AliveLibAE/Sound/Sound.hpp"
 

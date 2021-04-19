@@ -437,7 +437,7 @@ Mudokon* Mudokon::ctor_474F30(Path_Mudokon* pTlv, int tlvInfo)
 
     field_10_resources_array.SetAt(0, ResourceManager::GetLoadedResource_49C2A0(ResourceManager::Resource_Animation, ResourceID::kAbebsic1ResID, TRUE, FALSE));
     field_10_resources_array.SetAt(1, nullptr);
-    
+
     const AnimRecord& rec = AnimRec(AnimId::Mudokon_Idle);
     BYTE** ppRes = Add_Resource_4DC130(ResourceManager::Resource_Animation, rec.mResourceId);
     Animation_Init_424E10(rec.mFrameTableOffset, rec.mMaxW, rec.mMaxH, ppRes, 1, 1);
@@ -621,7 +621,7 @@ Mudokon* Mudokon::ctor_474F30(Path_Mudokon* pTlv, int tlvInfo)
     field_128_angry_timer = 0;
     field_160_delayed_speak = MudSounds::eNone;
     field_162_maxXOffset = field_DA_xOffset;
-    
+
     field_E0_pShadow = ae_new<Shadow>();
     if (field_E0_pShadow)
     {
@@ -772,7 +772,7 @@ int CC Mudokon::CreateFromSaveState_4717C0(const BYTE* pBuffer)
 
     const AnimRecord& animRec = AnimRec(kMudFrameTableOffsets_55CD00[pMud->field_106_current_motion]);
     BYTE** ppRes = pMud->AnimBlockForMotion_474DC0(pState->field_24_current_motion);
-    
+
     pMud->field_20_animation.Set_Animation_Data_409C80(animRec.mFrameTableOffset, ppRes);
 
     pMud->field_20_animation.field_92_current_frame = pState->field_26_anim_current_frame;
@@ -827,7 +827,7 @@ int CC Mudokon::CreateFromSaveState_4717C0(const BYTE* pBuffer)
     pMud->field_16A_flags.Set(Flags_16A::eBit8_do_angry, pState->field_6C.Get(Mudokon_State::Flags_6A::eBit11_do_angry));
     pMud->field_16A_flags.Set(Flags_16A::eBit9_seen_while_sick, pState->field_6C.Get(Mudokon_State::Flags_6A::eBit12_seen_while_sick));
     pMud->field_16A_flags.Set(Flags_16A::eBit10_stop_turning_work_wheel, pState->field_6C.Get(Mudokon_State::Flags_6A::eBit13_stop_trigger));
-    
+
     pMud->field_18C_unused = pState->field_6C.Get(Mudokon_State::Flags_6A::eBit14_unused);
     pMud->field_192_return_to_previous_motion = pState->field_6C.Get(Mudokon_State::Flags_6A::eBit15_return_to_previous_motion);
 
@@ -1114,7 +1114,7 @@ void Mudokon::vUpdate_4757A0()
     const __int16 oldMotion = field_106_current_motion;
 
     field_190_sub_state = (this->*sMudokon_AI_Table_55CDF0[field_18E_ai_state])();
-   
+
     const FP oldXPos = field_B8_xpos;
     const FP oldYPos = field_BC_ypos;
 
@@ -1366,7 +1366,7 @@ void Mudokon::vScreenChanged_476F30()
 void Mudokon::vPossessed_4774F0()
 {
     sControlledCharacter_5C1B8C = sActiveHero_5C1B68;
-    if (field_180_emo_tbl == Mud_Emotion::eSick_7 && 
+    if (field_180_emo_tbl == Mud_Emotion::eSick_7 &&
         !FindObjectOfType_425180(Types::eTorturedMud_141, field_B8_xpos, field_BC_ypos - FP_FromInteger(50)))
     {
         field_180_emo_tbl = Mud_Emotion::eNormal_0;
@@ -2155,13 +2155,13 @@ signed __int16 Mudokon::AI_Chisel_1_47C5F0()
     BaseAnimatedWithPhysicsGameObject* pDeadMudEvent = Event_Is_Event_In_Range_422C30(kEventMudokonDied, field_B8_xpos, field_BC_ypos, field_D6_scale);
     BaseAnimatedWithPhysicsGameObject* pLoudNoiseEvent = Event_Is_Event_In_Range_422C30(kEventLoudNoise, field_B8_xpos, field_BC_ypos, field_D6_scale);
 
-    const bool reactToAbused = (pAbuseEvent && pAbuseEvent != this && field_190_sub_state != AI_Chisle::eState1_StandUp_3 && 
+    const bool reactToAbused = (pAbuseEvent && pAbuseEvent != this && field_190_sub_state != AI_Chisle::eState1_StandUp_3 &&
         gMap_5C3030.Is_Point_In_Current_Camera_4810D0(field_C2_lvl_number, field_C0_path_number, field_B8_xpos, field_BC_ypos, 0));
 
-    const bool reactToDeadMud = (pDeadMudEvent && pDeadMudEvent != this && field_190_sub_state != AI_Chisle::eState1_StandUp_3 && 
+    const bool reactToDeadMud = (pDeadMudEvent && pDeadMudEvent != this && field_190_sub_state != AI_Chisle::eState1_StandUp_3 &&
         gMap_5C3030.Is_Point_In_Current_Camera_4810D0(field_C2_lvl_number, field_C0_path_number, field_B8_xpos, field_BC_ypos, 0));
 
-    const bool reactToLoudNoise = (pLoudNoiseEvent && pLoudNoiseEvent->field_4_typeId == Types::eGlukkon_67 && field_190_sub_state != AI_Chisle::eState1_StandUp_3 && 
+    const bool reactToLoudNoise = (pLoudNoiseEvent && pLoudNoiseEvent->field_4_typeId == Types::eGlukkon_67 && field_190_sub_state != AI_Chisle::eState1_StandUp_3 &&
         gMap_5C3030.Is_Point_In_Current_Camera_4810D0(field_C2_lvl_number, field_C0_path_number, field_B8_xpos, field_BC_ypos, 0));
 
     if (reactToAbused)
@@ -2797,7 +2797,7 @@ __int16 Mudokon::AI_Scrub_2_47D270()
         {
             field_108_next_motion = Mud_Motion::M_CrouchScrub_14_473560;
         }
-        
+
         bool bUnknown = false;
         if (field_106_current_motion != Mud_Motion::M_CrouchIdle_15_474040)
         {
@@ -4205,7 +4205,7 @@ __int16 Mudokon::AI_ListeningToAbe_State_7()
         field_108_next_motion = Mud_Motion::M_StandingTurn_2_472BF0;
         return field_190_sub_state;
     }
-    
+
     if (field_17E_delayed_speak != MudAction::eNone_17)
     {
         __int16 v18 = GetAISubStateResponse_477AF0(field_17E_delayed_speak);
@@ -4603,7 +4603,7 @@ __int16 Mudokon::AI_ListeningToAbe_State_12()
 __int16 Mudokon::AI_ListeningToAbe_State_13()
 {
     StandingKnockBack_473190();
-    
+
     field_20_animation.field_4_flags.Clear(AnimFlags::eBit18_IsLastFrame);
     field_108_next_motion = -1;
 
@@ -4988,8 +4988,8 @@ __int16 Mudokon::AI_ShrivelDeath_5_4714A0()
         {
             // Fizzel steam/smoke
             New_Smoke_Particles_426C70(
-                (FP_FromInteger(Math_RandomRange_496AB0(-24, 24)) * field_CC_sprite_scale) + field_B8_xpos, 
-                field_BC_ypos - FP_FromInteger(6), 
+                (FP_FromInteger(Math_RandomRange_496AB0(-24, 24)) * field_CC_sprite_scale) + field_B8_xpos,
+                field_BC_ypos - FP_FromInteger(6),
                 field_CC_sprite_scale / FP_FromInteger(2),
                 2, 128, 128, 128);
 
@@ -5407,7 +5407,7 @@ __int16 Mudokon::AI_AngryWorker_8_47E910()
 __int16 Mudokon::AI_Sick_9_47A910()
 {
     // TODO: Lame hack, tortured muds make the "real" mud do nothing.
-    if (FindObjectOfType_425180(Types::eTorturedMud_141, field_B8_xpos, field_BC_ypos - FP_FromInteger(50)) || 
+    if (FindObjectOfType_425180(Types::eTorturedMud_141, field_B8_xpos, field_BC_ypos - FP_FromInteger(50)) ||
         !gMap_5C3030.Is_Point_In_Current_Camera_4810D0(field_C2_lvl_number, field_C0_path_number, field_B8_xpos, field_BC_ypos, 0))
     {
         LastGameSpeak_476FF0(); // TODO: Pointless call ??
@@ -5593,10 +5593,10 @@ __int16 Mudokon::AI_Sick_9_47A910()
         {
             return field_190_sub_state;
         }
-        
+
         Sound_475EC0(MudSounds::eFart_7);
         field_108_next_motion = Mud_Motion::M_Speak_6_472FA0;
-        
+
         if (field_20_animation.field_4_flags.Get(AnimFlags::eBit5_FlipX))
         {
             New_Smoke_Particles_426C70(
@@ -6097,7 +6097,7 @@ void Mudokon::M_RunLoop_21_473720()
         StandingKnockBack_473190();
         return;
     }
-    
+
     MoveOnLine_4720D0();
 
     if (field_106_current_motion == Mud_Motion::M_RunLoop_21_473720)
@@ -6415,7 +6415,7 @@ void Mudokon::M_MidSneakToIdle_34_474020()
 void Mudokon::M_JumpBegin_35_474460()
 {
     Event_Broadcast_422BC0(kEventNoise, this);
-    
+
     field_B8_xpos += field_C4_velx;
 
     if (!field_20_animation.field_92_current_frame)
@@ -6700,7 +6700,7 @@ void Mudokon::M_Knockback_46_4742A0()
         gMap_5C3030.field_0_current_level == LevelIds::eBonewerkz_8 ||
         gMap_5C3030.field_0_current_level == LevelIds::eFeeCoDepot_5 ||
         gMap_5C3030.field_0_current_level == LevelIds::eBarracks_6 ||
-        gMap_5C3030.field_0_current_level == LevelIds::eBrewery_9) && 
+        gMap_5C3030.field_0_current_level == LevelIds::eBrewery_9) &&
         field_20_animation.field_92_current_frame == 7)
     {
         Environment_SFX_457A40(EnvironmentSfx::eHitGroundSoft_6, 80, -200, this);
@@ -6728,7 +6728,7 @@ void Mudokon::M_Knockback_46_4742A0()
 void Mudokon::M_KnockbackGetUp_47_474380()
 {
     ToFalling_472320();
-    
+
     Event_Broadcast_422BC0(kEventNoise, this);
     if (field_20_animation.field_4_flags.Get(AnimFlags::eBit18_IsLastFrame))
     {
@@ -6779,7 +6779,7 @@ void Mudokon::M_Fall_49_472C60()
             field_B8_xpos = hitX;
             field_BC_ypos = hitY;
             field_100_pCollisionLine = pLine;
-            
+
             MapFollowMe_408D10(TRUE);
 
             if ((sPath_dword_BB47C0->TLV_Get_At_4DB4B0(
@@ -7082,7 +7082,7 @@ GameSpeakEvents Mudokon::LastGameSpeak_476FF0()
     {
         return GameSpeakEvents::eNone_m1;
     }
-    
+
     // Look out works on any scale
     if (actualEvent == GameSpeakEvents::Slig_LookOut_6)
     {
@@ -7090,7 +7090,7 @@ GameSpeakEvents Mudokon::LastGameSpeak_476FF0()
     }
 
     // Check in valid range and on same scale
-    if (actualEvent < GameSpeakEvents::eUnknown_1 || 
+    if (actualEvent < GameSpeakEvents::eUnknown_1 ||
         actualEvent > GameSpeakEvents::eSorry_24 ||
         sActiveHero_5C1B68->field_CC_sprite_scale == field_CC_sprite_scale)
     {
@@ -7126,7 +7126,7 @@ void Mudokon::Sound_475EC0(MudSounds idx)
         pitch1 *= 100;
         pitch1 = pitch1 - field_13C_voice_pitch;
         Mudokon_SFX_457EC0(MudSounds::eSick_24, Math_RandomRange_496AB0(20, 50), pitch1, this);
-       
+
         short pitch2 = Math_RandomRange_496AB0(-5, 0);
         pitch2 *= 100;
         pitch2 = pitch2 - field_13C_voice_pitch;
@@ -7373,7 +7373,7 @@ __int16 Mudokon::StopAtWheel_477880()
             auto pOtherMud = static_cast<Mudokon*>(pObj);
 
             // Check if the other mud has already take the spot of this work wheel
-            if (bRect.x <= ourRect.w && 
+            if (bRect.x <= ourRect.w &&
                 bRect.w >= ourRect.x &&
                 bRect.h >= ourRect.y &&
                 bRect.y <= ourRect.h)
@@ -7434,7 +7434,7 @@ void Mudokon::StandingKnockBack_473190()
 // TODO: Abe sneaking or walking check ??
 __int16 Mudokon::IsMotionUnknown_4730F0()
 {
-    return 
+    return
         sActiveHero_5C1B68->field_106_current_motion == eAbeStates::State_40_SneakLoop_450550 ||
         sActiveHero_5C1B68->field_106_current_motion == eAbeStates::State_45_SneakBegin_4507A0 ||
         sActiveHero_5C1B68->field_106_current_motion == eAbeStates::State_41_WalkToSneak_450250 ||
@@ -7446,7 +7446,7 @@ __int16 Mudokon::IsMotionUnknown_4730F0()
 void Mudokon::MoveOnLine_4720D0()
 {
     PlatformBase* pPlatform = static_cast<PlatformBase*>(sObjectIds_5C1B70.Find_449CF0(field_110_id));
-    
+
     ToFalling_472320();
 
     const FP oldXPos = field_B8_xpos;

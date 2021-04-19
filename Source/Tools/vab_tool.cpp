@@ -4,7 +4,9 @@
 #include "SDL_main.h"
 #include "Io.hpp"
 #include "Sys.hpp"
+#ifndef NO_WAVE
 #define NO_WAVE
+#endif
 #include "../AliveLibAE/Sound/PsxSpuApi.hpp"
 #include "../AliveLibAE/LvlArchive.hpp"
 #include <string>
@@ -111,7 +113,7 @@ static void PCToPsxVab(bool isAe, const char* lvlName, const char* vhName, const
         }
         fclose(hDat);
     }
-    
+
     archive.Free_433130();
 }
 

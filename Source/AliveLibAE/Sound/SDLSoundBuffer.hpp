@@ -15,6 +15,8 @@ enum SDLSoundBufferStatus
     Playing = 2,
 };
 
+struct DSBUFFERDESC;
+
 class SDLSoundBuffer
 {
 

@@ -22,7 +22,7 @@ public:
 
     HRESULT DuplicateSoundBuffer(TSoundBufferType* pDSBufferOriginal, TSoundBufferType** ppDSBufferDuplicate);
 
-    HRESULT CreateSoundBuffer(LPCDSBUFFERDESC pcDSBufferDesc, TSoundBufferType** ppDSBuffer, void* /*pUnkOuter*/);
+    HRESULT CreateSoundBuffer(void* pcDSBufferDesc, TSoundBufferType** ppDSBuffer, void* /*pUnkOuter*/);
 
     HRESULT Release();
 
