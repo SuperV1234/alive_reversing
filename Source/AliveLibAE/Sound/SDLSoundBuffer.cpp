@@ -69,9 +69,9 @@ SDLSoundBuffer::SDLSoundBuffer(const DSBUFFERDESC& bufferDesc, int soundSysFreq)
     mBuffer = std::make_shared<std::vector<BYTE>>(bufferDesc.dwBufferBytes);
     mState.iBlockAlign = bufferDesc.lpwfxFormat->nBlockAlign;
     mState.iChannels = bufferDesc.lpwfxFormat->nChannels;
-*/
 
     AddVoiceToActiveList(this);
+*/
 }
 
 
