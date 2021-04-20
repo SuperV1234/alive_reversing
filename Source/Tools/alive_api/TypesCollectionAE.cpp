@@ -1,11 +1,10 @@
 #include "../AliveLibCommon/stdafx_common.h"
 #include "TypesCollection.hpp"
-#include "AOTlvs.hpp"
 #include "AETlvs.hpp"
-#include "../AliveLibAO/SwitchStates.hpp"
 #include "../AliveLibAE/PathData.hpp"
 #include "../AliveLibAE/SwitchStates.hpp"
-#include "magic_enum/include/magic_enum.hpp"
+#include "../AliveLibAE/Path.hpp"
+#include "../AliveLibAE/Map.hpp"
 
 void TypesCollection::AddAETypes()
 {
