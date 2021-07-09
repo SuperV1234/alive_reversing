@@ -3,6 +3,7 @@
 #include "../AliveLibCommon/Types.hpp"
 
 #include <map>
+#include <unordered_map>
 #include <memory>
 #include <string>
 
